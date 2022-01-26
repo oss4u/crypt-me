@@ -72,6 +72,7 @@ namespace CryptMe.ctrls
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(462, 23);
             this.progressBar.TabIndex = 2;
+            this.progressBar.Visible = false;
             // 
             // btnOk
             // 

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CryptMe.utils;
 
 namespace CryptMe.ctrls
 {
@@ -69,11 +70,11 @@ namespace CryptMe.ctrls
         private void button1_Click(object sender, EventArgs e)
         {
 
-            AesUtils utils = new AesUtils();
+            Aes aes = new Aes();
             if (checkBox1.Checked)
             {
                 string aesFile = Path.GetDirectoryName(txtFilenameEnc.Text) + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(txtFilenameEnc.Text);
-                utils.FileEncrypt(txtFilename.Text, aesFile, txtPassword.Text);
+                aes.FileEncrypt(txtFilename.Text, aesFile, txtPassword.Text);
                 Byte[] bytes = File.ReadAllBytes(aesFile);
                 String file = Convert.ToBase64String(bytes);
                 File.Delete(aesFile);
@@ -81,7 +82,7 @@ namespace CryptMe.ctrls
             }
             else
             {
-                utils.FileEncrypt(txtFilename.Text, txtFilenameEnc.Text, txtPassword.Text);
+                aes.FileEncrypt(txtFilename.Text, txtFilenameEnc.Text, txtPassword.Text);
             }
             string title = "CryptMe";
             string message = "Verschlüsselt";

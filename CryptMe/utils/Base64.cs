@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptMe
+namespace CryptMe.utils
 {
-    class Base64Utils
+    class Base64
     {
         public static Stream EncodeBase64(Stream streamToEncode)
         {

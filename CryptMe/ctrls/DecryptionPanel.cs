@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CryptMe.utils;
 
 namespace CryptMe.ctrls
 {
@@ -79,7 +80,7 @@ namespace CryptMe.ctrls
 
         private void decrypt()
         {
-            AesUtils utils = new AesUtils();
+            Aes utils = new Aes();
             if (cbDecodeB64.Checked)
             {
                 Byte[] bytes = Convert.FromBase64String(File.ReadAllText(fileToDecrypt.Text));

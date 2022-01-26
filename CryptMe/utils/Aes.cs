@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using CryptMe.exceptions;
 
-namespace CryptMe
+namespace CryptMe.utils
 {
-    class AesUtils
+    class Aes
     {
         //  Remove Key from Memory
         [DllImport("KERNEL32.DLL", EntryPoint = "RtlZeroMemory")]

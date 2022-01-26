@@ -47,8 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AesUtils.cs" />
-    <Compile Include="Base64Utils.cs" />
+    <Compile Include="utils\Aes.cs" />
+    <Compile Include="utils\Base64.cs" />
     <Compile Include="ctrls\ControlPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
