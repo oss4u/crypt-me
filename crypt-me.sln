@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptMe", "CryptMe\CryptMe.
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "CryptMe-Installer", "CryptMe-Installer\CryptMe-Installer.wapproj", "{8D5749E8-56D5-4FD1-AD9A-9A01B07E1B74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptMe-Test", "CryptMe-Test\CryptMe-Test.csproj", "{3A687DCF-A243-447F-A38B-3E77F08943DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		crypt-me|Any CPU = crypt-me|Any CPU
@@ -101,6 +103,36 @@ Global
 		{8D5749E8-56D5-4FD1-AD9A-9A01B07E1B74}.Release|x86.ActiveCfg = Release|x86
 		{8D5749E8-56D5-4FD1-AD9A-9A01B07E1B74}.Release|x86.Build.0 = Release|x86
 		{8D5749E8-56D5-4FD1-AD9A-9A01B07E1B74}.Release|x86.Deploy.0 = Release|x86
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|Any CPU.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|ARM.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|ARM.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|ARM64.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|ARM64.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|x64.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|x64.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|x86.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.crypt-me|x86.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|x64.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Debug|x86.Build.0 = Debug|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|ARM.Build.0 = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|ARM64.Build.0 = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|x64.ActiveCfg = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|x64.Build.0 = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|x86.ActiveCfg = Release|Any CPU
+		{3A687DCF-A243-447F-A38B-3E77F08943DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
