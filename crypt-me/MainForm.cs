@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using CryptMe;
 
@@ -13,7 +14,12 @@ namespace CryptMe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AesEncrypt aes = new AesEncrypt();
+            if (openFileForEncryptionDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                AesCiphers aes = new AesCiphers();
+                aes.FileEncrypt(openFileForEncryptionDialog.FileName, "HalloWelt");
+            }
+
         }
     }
 }
