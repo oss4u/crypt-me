@@ -17,9 +17,9 @@ namespace CryptMe.ctrls
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void ControlPanel_Load(object sender, EventArgs e)

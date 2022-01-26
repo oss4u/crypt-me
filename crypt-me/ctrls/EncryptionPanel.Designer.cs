@@ -29,81 +29,28 @@ namespace CryptMe.ctrls
         /// </summary>
         private void InitializeComponent()
         {
-            this.encryptGroup = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.openFileForEncryptionDialog = new System.Windows.Forms.OpenFileDialog();
+            this.txtFilename = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtFilenameEnc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.encryptGroup = new System.Windows.Forms.GroupBox();
+            this.btnEncrypt = new System.Windows.Forms.Button();
             this.encryptGroup.SuspendLayout();
             this.SuspendLayout();
             // 
-            // encryptGroup
+            // txtFilename
             // 
-            this.encryptGroup.Controls.Add(this.button2);
-            this.encryptGroup.Controls.Add(this.label3);
-            this.encryptGroup.Controls.Add(this.textBox3);
-            this.encryptGroup.Controls.Add(this.checkBox1);
-            this.encryptGroup.Controls.Add(this.label2);
-            this.encryptGroup.Controls.Add(this.label1);
-            this.encryptGroup.Controls.Add(this.textBox2);
-            this.encryptGroup.Controls.Add(this.textBox1);
-            this.encryptGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.encryptGroup.Enabled = false;
-            this.encryptGroup.Location = new System.Drawing.Point(0, 0);
-            this.encryptGroup.Name = "encryptGroup";
-            this.encryptGroup.Size = new System.Drawing.Size(963, 619);
-            this.encryptGroup.TabIndex = 4;
-            this.encryptGroup.TabStop = false;
-            this.encryptGroup.Text = "Datei Verschlüsseln";
-            this.encryptGroup.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(682, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Datei";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Dateiname (Verschlüsselt):";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(144, 98);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(613, 20);
-            this.textBox3.TabIndex = 5;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(144, 75);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(181, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Datei soll Base64 kodiert werden";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Dateiname (Verschlüsselt):";
+            this.txtFilename.Location = new System.Drawing.Point(144, 22);
+            this.txtFilename.Name = "txtFilename";
+            this.txtFilename.Size = new System.Drawing.Size(533, 20);
+            this.txtFilename.TabIndex = 0;
+            this.txtFilename.TextChanged += new System.EventHandler(this.changeCheck);
             // 
             // label1
             // 
@@ -114,19 +61,101 @@ namespace CryptMe.ctrls
             this.label1.TabIndex = 2;
             this.label1.Text = "Dateiname:";
             // 
-            // textBox2
+            // checkBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(144, 48);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(613, 20);
-            this.textBox2.TabIndex = 1;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(144, 48);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(181, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Datei soll Base64 kodiert werden";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // textBox1
+            // txtFilenameEnc
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(533, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtFilenameEnc.Location = new System.Drawing.Point(144, 71);
+            this.txtFilenameEnc.Name = "txtFilenameEnc";
+            this.txtFilenameEnc.Size = new System.Drawing.Size(613, 20);
+            this.txtFilenameEnc.TabIndex = 5;
+            this.txtFilenameEnc.TextChanged += new System.EventHandler(this.changeCheck);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Dateiname (Verschlüsselt):";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(682, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Datei";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(144, 97);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(296, 20);
+            this.txtPassword.TabIndex = 11;
+            this.txtPassword.TextChanged += new System.EventHandler(this.changeCheck);
+            // 
+            // txtPasswordConfirm
+            // 
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(144, 123);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(296, 20);
+            this.txtPasswordConfirm.TabIndex = 12;
+            this.txtPasswordConfirm.TextChanged += new System.EventHandler(this.changeCheck);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Passwort:";
+            // 
+            // encryptGroup
+            // 
+            this.encryptGroup.Controls.Add(this.btnEncrypt);
+            this.encryptGroup.Controls.Add(this.label4);
+            this.encryptGroup.Controls.Add(this.txtPasswordConfirm);
+            this.encryptGroup.Controls.Add(this.txtPassword);
+            this.encryptGroup.Controls.Add(this.button2);
+            this.encryptGroup.Controls.Add(this.label3);
+            this.encryptGroup.Controls.Add(this.txtFilenameEnc);
+            this.encryptGroup.Controls.Add(this.checkBox1);
+            this.encryptGroup.Controls.Add(this.label1);
+            this.encryptGroup.Controls.Add(this.txtFilename);
+            this.encryptGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.encryptGroup.Location = new System.Drawing.Point(0, 0);
+            this.encryptGroup.Name = "encryptGroup";
+            this.encryptGroup.Size = new System.Drawing.Size(963, 619);
+            this.encryptGroup.TabIndex = 4;
+            this.encryptGroup.TabStop = false;
+            this.encryptGroup.Text = "Datei Verschlüsseln";
+            // 
+            // btnEncrypt
+            // 
+            this.btnEncrypt.Enabled = false;
+            this.btnEncrypt.Location = new System.Drawing.Point(144, 149);
+            this.btnEncrypt.Name = "btnEncrypt";
+            this.btnEncrypt.Size = new System.Drawing.Size(85, 23);
+            this.btnEncrypt.TabIndex = 14;
+            this.btnEncrypt.Text = "Verschlüsseln";
+            this.btnEncrypt.UseVisualStyleBackColor = true;
+            this.btnEncrypt.Click += new System.EventHandler(this.button1_Click);
             // 
             // EncryptionPanel
             // 
@@ -142,15 +171,17 @@ namespace CryptMe.ctrls
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox encryptGroup;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.OpenFileDialog openFileForEncryptionDialog;
+        private System.Windows.Forms.TextBox txtFilename;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox txtFilenameEnc;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtPasswordConfirm;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox encryptGroup;
+        private System.Windows.Forms.Button btnEncrypt;
     }
 }

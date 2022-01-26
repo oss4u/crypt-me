@@ -37,7 +37,7 @@ namespace CryptMe
         /// </summary>
         /// <param name="inputFile"></param>
         /// <param name="password"></param>
-        public void FileEncrypt(string inputFile, string password)
+        public void FileEncrypt(string inputFile, string outputFile, string password)
         {
             byte[] salt = GenerateRandomSalt();
             FileStream fsCrypt = new FileStream(inputFile + ".aes", FileMode.Create);

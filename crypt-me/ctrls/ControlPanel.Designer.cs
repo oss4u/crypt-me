@@ -22,12 +22,6 @@ namespace CryptMe.ctrls
             }
             base.Dispose(disposing);
         }
-        
-        public bool OkBtnEnabled
-        {
-            get { return okBtn.Enabled; }
-            set { okBtn.Enabled = value; }
-        }
 
         public bool CloseBtnEnabled
         {
@@ -48,20 +42,9 @@ namespace CryptMe.ctrls
         /// </summary>
         private void InitializeComponent()
         {
-            this.okBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
-            // 
-            // okBtn
-            // 
-            this.okBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okBtn.Location = new System.Drawing.Point(484, 15);
-            this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(75, 23);
-            this.okBtn.TabIndex = 0;
-            this.okBtn.Text = "Ok";
-            this.okBtn.UseVisualStyleBackColor = true;
             // 
             // closeBtn
             // 
@@ -72,7 +55,7 @@ namespace CryptMe.ctrls
             this.closeBtn.TabIndex = 1;
             this.closeBtn.Text = "Schließen";
             this.closeBtn.UseVisualStyleBackColor = true;
-            this.closeBtn.Click += new System.EventHandler(this.button2_Click);
+            this.closeBtn.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // progressBar
             // 
@@ -80,7 +63,7 @@ namespace CryptMe.ctrls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(13, 15);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(454, 23);
+            this.progressBar.Size = new System.Drawing.Size(546, 23);
             this.progressBar.TabIndex = 2;
             // 
             // ControlPanel
@@ -89,7 +72,6 @@ namespace CryptMe.ctrls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.closeBtn);
-            this.Controls.Add(this.okBtn);
             this.Name = "ControlPanel";
             this.Size = new System.Drawing.Size(655, 54);
             this.Load += new System.EventHandler(this.ControlPanel_Load);
@@ -98,8 +80,6 @@ namespace CryptMe.ctrls
         }
 
         #endregion
-
-        private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.ProgressBar progressBar;
     }

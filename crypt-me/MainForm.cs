@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using CryptMe;
@@ -6,38 +7,15 @@ using CryptMe.ctrls;
 
 namespace CryptMe
 {
-    public partial class MainForm: Form
+    public partial class MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void encrypt_Click(object sender, EventArgs e)
-        {
 
-            if (openFileForEncryptionDialog.ShowDialog(this) == DialogResult.OK)
-            {
-
-                AesUtils aes = new AesUtils();
-                aes.FileEncrypt(openFileForEncryptionDialog.FileName, "HalloWelt");
-            }
-        }
-
-        private void decrypt_Click(object sender, EventArgs e)
-        {
-
-            if (openFileForDecryptionDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                AesUtils aes = new AesUtils();
-                string currentDir = Path.GetDirectoryName(openFileForDecryptionDialog.FileName);
-                string targetFilename = Path.GetFileNameWithoutExtension(openFileForDecryptionDialog.FileName);
-
-                aes.FileDecrypt(openFileForDecryptionDialog.FileName, currentDir + "\\" + targetFilename, "HalloWelt");
-            }
-        }
-
-        private void schließenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void schliessenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -47,21 +25,23 @@ namespace CryptMe
 
         }
 
-        private void verschlüsselnToolStripMenuItem_Click(object sender, EventArgs e)
+        private void decryptToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (encryptionPanel == null)
-            {
-                encryptionPanel = new EncryptionPanel();
-            }
-            
+            DecryptionPanel panel = new DecryptionPanel();
+            panel.Dock = DockStyle.Fill;
+            panel.Enabled = true;
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(panel);
         }
 
-        private void entschlüsselnToolStripMenuItem_Click(object sender, EventArgs e)
+        private void encryptToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (decryptionPanel == null)
-            {
-                decryptionPanel = new DecryptionPanel();
-            }
+            EncryptionPanel panel = new EncryptionPanel();
+            panel.Dock = DockStyle.Fill;
+            panel.Enabled = true;
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(panel);
         }
+
     }
 }
