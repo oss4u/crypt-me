@@ -4,6 +4,7 @@
     <TargetFramework>net48</TargetFramework>
     <RootNamespace>CryptMe_Test</RootNamespace>
     <Nullable>enable</Nullable>
+	<LangVersion>8.0</LangVersion>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
