@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using CryptMe;
+using CryptMe.ctrls;
 
 namespace CryptMe
 {
@@ -14,10 +15,7 @@ namespace CryptMe
 
         private void encrypt_Click(object sender, EventArgs e)
         {
-            decryptGroup.Visible = false;
-            decryptGroup.Enabled = false;
-            encryptGroup.Visible = true;
-            encryptGroup.Enabled = true;
+
             if (openFileForEncryptionDialog.ShowDialog(this) == DialogResult.OK)
             {
 
@@ -28,10 +26,7 @@ namespace CryptMe
 
         private void decrypt_Click(object sender, EventArgs e)
         {
-            decryptGroup.Visible = true;
-            decryptGroup.Enabled = true;
-            encryptGroup.Visible = false;
-            encryptGroup.Enabled = false;
+
             if (openFileForDecryptionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 AesUtils aes = new AesUtils();
@@ -50,6 +45,23 @@ namespace CryptMe
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void verschlüsselnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (encryptionPanel == null)
+            {
+                encryptionPanel = new EncryptionPanel();
+            }
+            
+        }
+
+        private void entschlüsselnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (decryptionPanel == null)
+            {
+                decryptionPanel = new DecryptionPanel();
+            }
         }
     }
 }
