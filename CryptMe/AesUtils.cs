@@ -128,7 +128,7 @@ namespace CryptMe
             }
             catch (CryptographicException exCryptographicException)
             {
-                throw new DecryptionException("CryptographicException error" + exCryptographicException.Message, exCryptographicException)
+                throw new DecryptionException("CryptographicException error" + exCryptographicException.Message, exCryptographicException);
             }
             catch (Exception ex)
             {
