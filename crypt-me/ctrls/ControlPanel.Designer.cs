@@ -29,6 +29,12 @@ namespace CryptMe.ctrls
             set { closeBtn.Enabled = value; }
         }
 
+        public bool OkBtnEnabled
+        {
+            get { return btnOk.Enabled; }
+            set { btnOk.Enabled = value; }
+        }
+
         public ProgressBar Progress
         {
             get { return progressBar; }
@@ -44,6 +50,7 @@ namespace CryptMe.ctrls
         {
             this.closeBtn = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -53,7 +60,7 @@ namespace CryptMe.ctrls
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(75, 23);
             this.closeBtn.TabIndex = 1;
-            this.closeBtn.Text = "Schließen";
+            this.closeBtn.Text = "&Schließen";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -63,13 +70,26 @@ namespace CryptMe.ctrls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(13, 15);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(546, 23);
+            this.progressBar.Size = new System.Drawing.Size(462, 23);
             this.progressBar.TabIndex = 2;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.Enabled = false;
+            this.btnOk.Location = new System.Drawing.Point(484, 15);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.TabIndex = 3;
+            this.btnOk.Text = "&Ok";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.closeBtn);
             this.Name = "ControlPanel";
@@ -82,5 +102,6 @@ namespace CryptMe.ctrls
         #endregion
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.ProgressBar progressBar;
+        private Button btnOk;
     }
 }

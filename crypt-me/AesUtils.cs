@@ -3,6 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using CryptMe.exceptions;
 
 namespace CryptMe
 {
@@ -36,27 +37,28 @@ namespace CryptMe
         /// Encrypts a file from its path and a plain password.
         /// </summary>
         /// <param name="inputFile"></param>
+        /// <param name="outputFile"></param>
         /// <param name="password"></param>
         public void FileEncrypt(string inputFile, string outputFile, string password)
         {
             byte[] salt = GenerateRandomSalt();
-            FileStream fsCrypt = new FileStream(inputFile + ".aes", FileMode.Create);
+            FileStream fsCrypt = new FileStream(outputFile, FileMode.Create);
 
             byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
-            RijndaelManaged AES = new RijndaelManaged();
-            AES.KeySize = 256;
-            AES.BlockSize = 128;
-            AES.Padding = PaddingMode.PKCS7;
+            RijndaelManaged aes = new RijndaelManaged();
+            aes.KeySize = 256;
+            aes.BlockSize = 128;
+            aes.Padding = PaddingMode.PKCS7;
 
             var key = new Rfc2898DeriveBytes(passwordBytes, salt, 50000);
-            AES.Key = key.GetBytes(AES.KeySize / 8);
-            AES.IV = key.GetBytes(AES.BlockSize / 8);
+            aes.Key = key.GetBytes(aes.KeySize / 8);
+            aes.IV = key.GetBytes(aes.BlockSize / 8);
 
-            AES.Mode = CipherMode.CFB;
+            aes.Mode = CipherMode.CFB;
             
             fsCrypt.Write(salt, 0, salt.Length);
 
-            CryptoStream cs = new CryptoStream(fsCrypt, AES.CreateEncryptor(), CryptoStreamMode.Write);
+            CryptoStream cs = new CryptoStream(fsCrypt, aes.CreateEncryptor(), CryptoStreamMode.Write);
 
             FileStream fsIn = new FileStream(inputFile, FileMode.Open);
 
@@ -68,7 +70,7 @@ namespace CryptMe
             {
                 while ((read = fsIn.Read(buffer, 0, buffer.Length)) > 0)
                 {
-                    Application.DoEvents(); // -> for responsive GUI, using Task will be better!
+                    Application.DoEvents(); 
                     cs.Write(buffer, 0, read);
                 }
 
@@ -77,7 +79,7 @@ namespace CryptMe
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                throw new EncryptionException("Error: " + ex.Message, ex);
             }
             finally
             {
@@ -100,16 +102,16 @@ namespace CryptMe
             FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
             fsCrypt.Read(salt, 0, salt.Length);
 
-            RijndaelManaged AES = new RijndaelManaged();
-            AES.KeySize = 256;
-            AES.BlockSize = 128;
+            RijndaelManaged aes = new RijndaelManaged();
+            aes.KeySize = 256;
+            aes.BlockSize = 128;
             var key = new Rfc2898DeriveBytes(passwordBytes, salt, 50000);
-            AES.Key = key.GetBytes(AES.KeySize / 8);
-            AES.IV = key.GetBytes(AES.BlockSize / 8);
-            AES.Padding = PaddingMode.PKCS7;
-            AES.Mode = CipherMode.CFB;
+            aes.Key = key.GetBytes(aes.KeySize / 8);
+            aes.IV = key.GetBytes(aes.BlockSize / 8);
+            aes.Padding = PaddingMode.PKCS7;
+            aes.Mode = CipherMode.CFB;
 
-            CryptoStream cs = new CryptoStream(fsCrypt, AES.CreateDecryptor(), CryptoStreamMode.Read);
+            CryptoStream cs = new CryptoStream(fsCrypt, aes.CreateDecryptor(), CryptoStreamMode.Read);
 
             FileStream fsOut = new FileStream(outputFile, FileMode.Create);
 
@@ -124,13 +126,13 @@ namespace CryptMe
                     fsOut.Write(buffer, 0, read);
                 }
             }
-            catch (CryptographicException ex_CryptographicException)
+            catch (CryptographicException exCryptographicException)
             {
-                Console.WriteLine("CryptographicException error: " + ex_CryptographicException.Message);
+                throw new DecryptionException("CryptographicException error" + exCryptographicException.Message, exCryptographicException)
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                throw new DecryptionException("Error: " + ex.Message, ex);
             }
 
             try
@@ -139,7 +141,7 @@ namespace CryptMe
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error by closing CryptoStream: " + ex.Message);
+                throw new DecryptionException("Error by closing CryptoStream: " + ex.Message, ex);
             }
             finally
             {

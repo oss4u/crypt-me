@@ -13,11 +13,12 @@ using System.Windows.Forms;
 
 namespace CryptMe.ctrls
 {
-    public partial class DecryptionPanel : UserControl
+    public partial class DecryptionPanel : UserControl, Run
     {
         public DecryptionPanel()
         {
             InitializeComponent();
+            controlPanel1.AddRunner(this);
         }
 
         private void chooseFileToDecrypt_Click(object sender, EventArgs e)
@@ -57,16 +58,26 @@ namespace CryptMe.ctrls
                 txtPassword.Text == txtPasswordConfirm.Text &&
                 txtFilename.Text != String.Empty)
             {
-                btnDecrypt.Enabled = true;
+                controlPanel1.OkBtnEnabled = true;
             }
             else
             {
-                btnDecrypt.Enabled = false;
+                controlPanel1.OkBtnEnabled = false;
             }
         }
 
 
         private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            decrypt();
+        }
+
+        public void Run()
+        {
+            decrypt();
+        }
+
+        private void decrypt()
         {
             AesUtils utils = new AesUtils();
             if (cbDecodeB64.Checked)

@@ -12,6 +12,7 @@ namespace CryptMe.ctrls
 {
     public partial class ControlPanel : UserControl
     {
+        private List<Run> runners = new List<Run>();
         public ControlPanel()
         {
             InitializeComponent();
@@ -25,6 +26,24 @@ namespace CryptMe.ctrls
         private void ControlPanel_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void AddRunner(Run oneRun)
+        {
+            runners.Add(oneRun);
+        }
+
+        public void RemoveRunner(Run oneRun)
+        {
+            runners.Remove(oneRun);
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            foreach (Run oneRun in runners)
+            {
+                oneRun.Run();
+            }
         }
     }
 }

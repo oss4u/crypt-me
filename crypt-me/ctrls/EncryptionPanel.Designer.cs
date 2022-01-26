@@ -41,6 +41,7 @@ namespace CryptMe.ctrls
             this.label4 = new System.Windows.Forms.Label();
             this.encryptGroup = new System.Windows.Forms.GroupBox();
             this.btnEncrypt = new System.Windows.Forms.Button();
+            this.controlPanel1 = new CryptMe.ctrls.ControlPanel();
             this.encryptGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +129,7 @@ namespace CryptMe.ctrls
             // 
             // encryptGroup
             // 
+            this.encryptGroup.Controls.Add(this.controlPanel1);
             this.encryptGroup.Controls.Add(this.btnEncrypt);
             this.encryptGroup.Controls.Add(this.label4);
             this.encryptGroup.Controls.Add(this.txtPasswordConfirm);
@@ -157,6 +159,16 @@ namespace CryptMe.ctrls
             this.btnEncrypt.UseVisualStyleBackColor = true;
             this.btnEncrypt.Click += new System.EventHandler(this.button1_Click);
             // 
+            // controlPanel1
+            // 
+            this.controlPanel1.CloseBtnEnabled = true;
+            this.controlPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.controlPanel1.Location = new System.Drawing.Point(3, 562);
+            this.controlPanel1.Name = "controlPanel1";
+            this.controlPanel1.OkBtnEnabled = true;
+            this.controlPanel1.Size = new System.Drawing.Size(957, 54);
+            this.controlPanel1.TabIndex = 15;
+            // 
             // EncryptionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,5 +195,6 @@ namespace CryptMe.ctrls
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox encryptGroup;
         private System.Windows.Forms.Button btnEncrypt;
+        private ControlPanel controlPanel1;
     }
 }

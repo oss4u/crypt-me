@@ -66,6 +66,9 @@
     <Compile Include="ctrls\EncryptionPanel.Designer.cs">
       <DependentUpon>EncryptionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctrls\Run.cs" />
+    <Compile Include="exceptions\DecryptionException.cs" />
+    <Compile Include="exceptions\EncryptionException.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -30,7 +30,7 @@ namespace CryptMe.ctrls
         private void InitializeComponent()
         {
             this.decryptGroup = new System.Windows.Forms.GroupBox();
-            this.btnDecrypt = new System.Windows.Forms.Button();
+            this.controlPanel1 = new CryptMe.ctrls.ControlPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@ namespace CryptMe.ctrls
             // 
             // decryptGroup
             // 
-            this.decryptGroup.Controls.Add(this.btnDecrypt);
+            this.decryptGroup.Controls.Add(this.controlPanel1);
             this.decryptGroup.Controls.Add(this.label1);
             this.decryptGroup.Controls.Add(this.txtPasswordConfirm);
             this.decryptGroup.Controls.Add(this.txtPassword);
@@ -68,16 +68,15 @@ namespace CryptMe.ctrls
             this.decryptGroup.TabStop = false;
             this.decryptGroup.Text = "Datei Entschlüsseln";
             // 
-            // btnDecrypt
+            // controlPanel1
             // 
-            this.btnDecrypt.Enabled = false;
-            this.btnDecrypt.Location = new System.Drawing.Point(144, 187);
-            this.btnDecrypt.Name = "btnDecrypt";
-            this.btnDecrypt.Size = new System.Drawing.Size(97, 23);
-            this.btnDecrypt.TabIndex = 12;
-            this.btnDecrypt.Text = "Entschlüsseln";
-            this.btnDecrypt.UseVisualStyleBackColor = true;
-            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
+            this.controlPanel1.CloseBtnEnabled = true;
+            this.controlPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.controlPanel1.Location = new System.Drawing.Point(3, 445);
+            this.controlPanel1.Name = "controlPanel1";
+            this.controlPanel1.OkBtnEnabled = false;
+            this.controlPanel1.Size = new System.Drawing.Size(894, 54);
+            this.controlPanel1.TabIndex = 13;
             // 
             // label1
             // 
@@ -216,6 +215,6 @@ namespace CryptMe.ctrls
         private System.Windows.Forms.TextBox txtPasswordConfirm;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.OpenFileDialog openFileForDecryptionDialog;
-        private System.Windows.Forms.Button btnDecrypt;
+        private ControlPanel controlPanel1;
     }
 }
