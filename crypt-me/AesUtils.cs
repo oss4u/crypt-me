@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace CryptMe
 {
-    class AesCiphers
+    class AesUtils
     {
         //  Remove Key from Memory
         [DllImport("KERNEL32.DLL", EntryPoint = "RtlZeroMemory")]
