@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CryptMe;
 
-namespace crypt_me
+namespace CryptMe
 {
     static class Program
     {
@@ -16,7 +17,7 @@ namespace crypt_me
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

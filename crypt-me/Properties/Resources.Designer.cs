@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace crypt_me.Properties
+namespace CryptMe.Properties
 {
     /// <summary>
     ///   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
