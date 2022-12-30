@@ -17,7 +17,6 @@ namespace CryptMe.utils
                 streamToEncode.CopyTo(msToEncode);
                 bytesToEncode = msToEncode.ToArray();
             }
-
             string encodedString = Convert.ToBase64String(bytesToEncode);
             return new MemoryStream(Encoding.UTF8.GetBytes(encodedString));
         }
@@ -34,5 +33,6 @@ namespace CryptMe.utils
             byte[] decodedBytes = Convert.FromBase64String(stringToDecode);
             return new MemoryStream(decodedBytes);
         }
+
     }
 }

@@ -80,20 +80,23 @@ namespace CryptMe.ctrls
 
         private void decrypt()
         {
-            Aes utils = new Aes();
-            if (cbDecodeB64.Checked)
+            Aes aes = new Aes();
+            using  (FileStream fileStream = new FileStream(txtFilename.Text, FileMode.Open, FileAccess.Read, FileShare.None))
             {
-                Byte[] bytes = Convert.FromBase64String(File.ReadAllText(fileToDecrypt.Text));
-                File.WriteAllBytes(b64Intermediate.Text, bytes);
-                utils.FileDecrypt(b64Intermediate.Text, txtFilename.Text, txtPassword.Text);
+
+            
+                if (cbDecodeB64.Checked)
+                {
+                    byte[] bytes = Convert.FromBase64String(File.ReadAllText(fileToDecrypt.Text));
+                    File.WriteAllBytes(b64Intermediate.Text, bytes);
+                    aes.FileDecrypt(b64Intermediate.Text, txtFilename.Text, txtPassword.Text);
+                }
+                else
+                {
+                    aes.FileDecrypt(fileToDecrypt.Text, txtFilename.Text, txtPassword.Text);
+                }
             }
-            else
-            {
-                utils.FileDecrypt(fileToDecrypt.Text, txtFilename.Text, txtPassword.Text);
-            }
-            string title = "CryptMe";
-            string message = "Entschlüsselt";
-            MessageBox.Show(message, title);
+            MessageBox.Show("Die Datei wurde erfolgreich entschlüsselt.", "Bestätigung", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
