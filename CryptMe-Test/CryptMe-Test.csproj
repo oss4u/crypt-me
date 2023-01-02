@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <RootNamespace>CryptMe_Test</RootNamespace>
+    <RootNamespace>CryptMe</RootNamespace>
     <Nullable>enable</Nullable>
 	<LangVersion>8.0</LangVersion>
 

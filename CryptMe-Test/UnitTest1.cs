@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CryptMe_Test
+namespace CryptMe
 {
     [TestClass]
     public class UnitTest1
